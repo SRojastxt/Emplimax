@@ -1,0 +1,83 @@
+.banner{
+	position: inherit;
+	width: 100%;
+	height: calc(80vh - 80px);
+	background-color: #F5F5F5;
+	background-size: cover;
+	background-position: center;
+	transition: all 2.5s ease-out;
+	background-image: url('../assets/img/banner-1.jpg');
+	animation: banner 10s infinite linear;
+}
+.banner-content{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+	background-color: rgba(0, 22, 40, .6);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.banner-content h1{
+	margin: 0;
+	padding: 0;
+	padding-bottom: 30px;
+	font-size: 40px;
+	text-align: center;
+}
+
+.banner-content p{
+    margin: 0;
+	padding: 0;
+	padding-bottom: 30px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.banner-content a{
+	font-size: 15px;
+	text-decoration: none;
+	color: #FFF;
+	padding: 9px 20px;
+	border: 1px solid #FFF;
+    border-radius: 3px;
+	text-transform: uppercase;
+	transition: all .4s ease-in-out;
+}
+
+a{	
+	margin: 5px;
+}
+
+.banner-content a:hover{
+	background-color: #2978cb;
+}
+
+@keyframes banner{
+    0%, 25%{
+        background-image: url(../image/Empleo/Background1.jpg);
+    }
+    26%, 50%{
+        background-image: url(../image/Empleo/Background2.jpg);
+    }
+    51%, 75%{
+        background-image: url(../image/Empleo/Background3.jpg);
+    }
+    76%, 100%{
+        background-image: url(../image/Empleo/Background4.jpg);
+    }
+}
+
+@media (max-width: 768px){
+   .banner{
+       height: calc(90vh - 60px);
+   }
+
+    .banner-content{
+        margin: 0;
+        padding: 0;
+   }
+}
