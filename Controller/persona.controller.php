@@ -48,13 +48,13 @@ class PersonaController{
         $alm = new Persona();
         
         $alm->id= $_REQUEST['id'];
-        $alm->adm_usu = $_REQUEST['adm_usu'];
+        $alm->adm_usu = $_POST['adm_usu'];
         
         $alm->contrasena = password_hash($_POST['contrasena'],PASSWORD_BCRYPT);
           
         $this->model->Actualizar($alm);
        
-        header('Location: ../Views/Admin/iniadm.php');
+        require '../Views/Admin/persona.php';
     }
 
     public function Register(){
@@ -66,13 +66,13 @@ class PersonaController{
         
         $this->model->Registrar($alm); 
         
-        header('Location: ../Views/Admin/iniadm.php');
+        require '../Views/Admin/persona.php';
     }
 
     
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
-        header('Location: ../Views/Admin/iniadm.php');
+        require '../Views/Admin/persona.php';
     }
 
 }
