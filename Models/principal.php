@@ -1,23 +1,25 @@
 <?php 
 
 class Principal {
-	private $conection;
+	private $pdo;
+    
 
-	public function __construct() {
-		
+	public function __CONSTRUCT()
+	{
+		try
+		{
+			$this->pdo = Conexion::StartUp();     
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
 	}
-
-	/* Set conection */
-	public function getConection(){
-		$dbObj = new Db();
-		$this->conection = $dbObj->conection;
-	}
-
 	/* example Get all  */
 	public function getNotes(){
-		$this->getConection();
+
 		$sql = "SELECT * FROM users";
-		$stmt = $this->conection->prepare($sql);
+		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 
 		return $stmt->fetchAll();

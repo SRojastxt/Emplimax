@@ -28,8 +28,8 @@
           soluta saepe quo labore magnam laboriosam eligendi? Dolores, nemo
           similique? Consequatur deleniti aliquam obcaecati odio dignissimos?
         </p>
-        <a href="http://localhost:8080/EmplimaxMVC/Controller/UsuarioController.php?action=login">Iniciar sesión</a>
-        <a href="../Views/regiscard.php">Registrarse</a>
+        <a href="./Views/logincards.php">Iniciar sesión</a>
+        <a href="./Views/regiscard.php">Registrarse</a>
       </div>
     </section>
     <section class="mv">

@@ -23,3 +23,4 @@ require_once 'Views/'.$Controller->Views.'.php';
 require_once 'Views/template/footer.php';
 
 ?>
+

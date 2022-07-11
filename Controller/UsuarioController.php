@@ -10,12 +10,6 @@ class UsuarioController extends Usuario{
         
     }
 
-    public function PerfilView()
-    {
-        
-        require '../Views/perfil.php';
-        
-    }
 
     public function InsertView()
     {
@@ -39,11 +33,12 @@ class UsuarioController extends Usuario{
         $this->usuario = $usuario;
         $this->contrasena = $password; 
         $infousuario = $this->SearchUsuarioForName();
-        foreach($infousuario as $nombre){}
-        if(password_verify($password,$nombre->contrasena)){
-            echo "Felicidades nuevo usuario"; $_SESSION['usuario'] = $nombre->usuario;
-            $_SESSION['foto_url'] = $nombre->foto_url;
-            $_SESSION['email'] = $nombre->email; 
+        foreach($infousuario as $usuario){}
+        if(password_verify($password,$usuario->contrasena)){
+        {
+            header("Location: http://localhost:8080/EmplimaxMVC/Views/perfil.php");
+            exit();
+        }
         }
         else
         {
@@ -58,10 +53,6 @@ if(isset($_GET['action']) && $_GET['action']=='login'){
     $instanciacontrolador->LoginView();
 }
 
-if(isset($_POST['action']) && $_POST['action']=='login'){
-    $instanciacontrolador = new UsuarioController();
-    $instanciacontrolador->PerfilView();
-}
 
 if(isset($_GET['action']) && $_GET['action']=='insert'){
     $instanciacontrolador = new UsuarioController();

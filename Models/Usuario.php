@@ -4,11 +4,18 @@ require 'db.php';
 
 class Usuario{
 
-    private $conection;
+    private $pdo;
 
-    public function getConection(){
-		$dbObj = new Db();
-		$this->conection = $dbObj->conection;
+	public function __CONSTRUCT()
+	{
+		try
+		{
+			$this->pdo = Conexion::StartUp();     
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
 	}
 
     protected $id;
@@ -23,9 +30,9 @@ class Usuario{
 
     protected function InsertUsuario()
     {
-        $this->getConection();
+        
         $sql = "INSERT INTO users(usuario, email, documento, contrasena, foto, foto_url) VALUES(?, ?, ?, ?, ?, ?)";
-        $insertar = $this->conection->prepare($sql);
+        $insertar = $this->pdo->prepare($sql);
         $insertar->bindParam(1,$this->usuario);
         $insertar->bindParam(2,$this->email);
         $insertar->bindParam(3,$this->documento);
@@ -37,9 +44,9 @@ class Usuario{
 
     protected function SearchUsuarioForName()
     {
-        $this->getConection();
+    
         $sql = "SELECT * FROM users WHERE usuario = '$this->usuario'";
-        $searchuser = $this->conection->prepare($sql);
+        $searchuser = $this->pdo->prepare($sql);
         $searchuser->execute();
         $objetoconsulta = $searchuser->fetchall(PDO::FETCH_OBJ);
         return $objetoconsulta;
